@@ -1,0 +1,24 @@
+{
+  "name": "crypto-investor",
+  "version": "1.0.0",
+  "description": "Let us assume you are a crypto investor. You have made transactions over a period of time which is logged in a CSV file. Write a command line program that does the following",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freddykaberuka/Crypto-Investor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freddykaberuka/Crypto-Investor/issues"
+  },
+  "homepage": "https://github.com/freddykaberuka/Crypto-Investor#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "fs": "^0.0.1-security"
+  }
+}
