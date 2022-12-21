@@ -4,6 +4,7 @@
   "description": "Let us assume you are a crypto investor. You have made transactions over a period of time which is logged in a CSV file. Write a command line program that does the following",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/freddykaberuka/Crypto-Investor#readme",
   "dependencies": {
     "csv-parser": "^3.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "readline": "^1.3.0",
+    "request": "^2.88.2"
   }
 }
