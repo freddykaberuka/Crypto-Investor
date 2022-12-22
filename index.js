@@ -14,6 +14,7 @@ const cryptoKey = '3ba1415ed57ad5854e07034c7d56ea57b7cb32e4d3f31244feed25df611b7
 let totalBtc = 0;
 let totalEth = 0;
 let totalXrp = 0;
+let totalTrans = 0;
 
 const transactionFunc =(csvData)=>{
   if(csvData.token === 'BTC' && csvData.transaction_type === 'WITHDRAWAL')
@@ -33,7 +34,9 @@ const transactionFunc =(csvData)=>{
 
 const cryptoFunc = () =>{
     readline.question(
-        `Enter 1: Given no parameters, return the latest portfolio value per token in USD.\n`,
+        `\n
+        Enter 1: Given no parameters, return the latest portfolio value per token in USD.\n
+        Enter 2: Given a token, return the latest portfolio value for that token in USD \n`,
         (answer) =>{
             if(answer === '1'){
                 console.log('you selected 1');
@@ -53,6 +56,31 @@ const cryptoFunc = () =>{
                         }
                         readline.close();
                     })
+                })
+            }
+            else if(answer ==='2'){
+                console.log('you selected 2');
+                readline.question('Enter Token ex: BTC:',(answer2)=>{
+                    const token = answer2;
+                    stream.on('data',(data)=>{
+                        if(data.token===token && data.transaction_type ==='DEPOSIT'){
+                            totalTrans +=+ data.amount;
+                        }
+                        else if(data.token === token && data.transaction_type ==='WITHDRAWAL'){
+                            totalTrans -=+ data.amount;
+                        }
+                    }).on('end',()=>{
+                        const url = `https://min-api.cryptocompare.com/data/price?fsym=${token}&tsyms=USD&api_key=${cryptoKey}`;
+                        request({url : url},(error,res,body)=>{
+                            if(!error && res.statusCode == 200){
+                                const parseData = JSON.parse(body);
+                                
+                                const total = parseData['USD']*totalTrans;
+                                console.log('Total of'+ answer2 +': $'+total.toLocaleString());
+                            }
+                        });
+                    });
+                    readline.close();
                 })
             }
         }
