@@ -52,8 +52,6 @@ Portfolio means the balance of the token where you need to add deposits and subt
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
@@ -67,7 +65,8 @@ install Nodejs in your computer.
 Clone this repository to your desired folder:
 
 
-```git clone https://github.com/freddykaberuka/Crypto-Investor.git
+```sh
+    git clone https://github.com/freddykaberuka/Crypto-Investor.git
 ```
 
 ### Install
@@ -85,7 +84,8 @@ Install this project with:
 To run the project, execute the following command:
 
 
-```npm start
+```sh
+   npm start
 ```
 
 
@@ -97,7 +97,7 @@ To run the project, execute the following command:
 👤 **Author**
 
 - GitHub: [@freddykaberuka](https://github.com/freddykaberuka)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kaberuka-freddy-853b08153/)
+- LinkedIn: [Freddy Kaberuka](https://www.linkedin.com/in/kaberuka-freddy-853b08153/)
 
 
 <!-- CONTRIBUTING -->
