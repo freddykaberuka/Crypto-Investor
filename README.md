@@ -47,6 +47,37 @@ Portfolio means the balance of the token where you need to add deposits and subt
 - **[Given a date, return the portfolio value per token in USD on that date]**
 - **[Given a date and a token, return the portfolio value of that token in USD on that date]**
 
+### Methodology
+
+> 1st Create a function that check the transaction that made.
+```sh
+    const transactionFunc = (csvData) => {
+  csvData.token === "BTC" && csvData.transaction_type === "WITHDRAWAL"
+    ? (totalBtc -= +csvData.amount)
+    : (totalBtc += +csvData.amount);
+  csvData.token === "ETH" && csvData.transaction_type === "WITHDRAWAL"
+    ? (totalEth -= +csvData.amount)
+    : (totalEth += +csvData.amount);
+  csvData.token === "XRP" && csvData.transaction_type === "WITHDRAWAL"
+    ? (totalXrp -= +csvData.amount)
+    : (totalXrp += +csvData.amount);
+};
+```
+this transactionFunc will check the transaction type and the token used for each.
+
+> 2nd Declare an array which hold the list of question that will be asked in the next step.
+```sh
+    const questions = [
+    "Enter 1: Given no parameters, return the latest portfolio value per token in USD.\n",
+    "Enter 2: Given a token, return the latest portfolio value for that token in USD \n",
+    "Enter 3: Given a date, return the portfolio value per token in USD on that date \n",
+    "Enter 4: Given a date and a token, return the portfolio value of that token in USD on that date \n",
+    ].join("");
+```
+> 3rd main function called cryptoFunc that contains all features listed above.
+the function is composed with different if else statement where all the answer of asked questing is
+
+
 
 <!-- GETTING STARTED -->
 
@@ -107,6 +138,4 @@ To run the project, execute the following command:
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
